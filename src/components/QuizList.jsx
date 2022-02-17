@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Quiz from './Quiz';
 
@@ -6,6 +7,7 @@ import '../styles/QuizList.css';
 
 export default function QuizList() {
   const [answers, setAnswers] = useState([]);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     async function trivias() {
@@ -14,25 +16,27 @@ export default function QuizList() {
       );
       const resJson = await res.json();
 
-      setResults(resJson.results);
+      setAnswers(resJson.results);
     }
-
     trivias();
   }, []);
 
-  const [results, setResults] = useState([]);
+  const shuffledArray = (arr) => arr.sort(() => 0.5 - Math.random());
 
-  const quizDisplay = results.map((result, idx) => (
+  const quizAnswers = answers.map((answer) => (
     <Quiz
-      key={idx}
-      question={result.question}
-      answers={[result.correct_answer, ...result.incorrect_answers]}
+      key={uuidv4()}
+      question={answer.question}
+      answers={shuffledArray([
+        answer.correct_answer,
+        ...answer.incorrect_answers,
+      ])}
     />
   ));
 
   return (
     <div className="QuizList">
-      <div className="QuizList-btn-wrapper">{quizDisplay}</div>
+      <div className="QuizList-btn-wrapper">{quizAnswers}</div>
       <button className="QuizList-button">Check Answers</button>
     </div>
   );
