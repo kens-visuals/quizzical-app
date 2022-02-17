@@ -1,0 +1,44 @@
+.Quiz {
+  margin-bottom: 2rem;
+}
+
+.Quiz-question {
+  max-width: 75rem;
+  color: hsl(230, 34%, 46%);
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.Quiz-list {
+  max-width: 90%;
+  list-style: none;
+  border-bottom: 0.1rem solid hsl(231, 41%, 90%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.Quiz-item {
+  padding-bottom: 2rem;
+}
+
+.Quiz-btn {
+  width: 100%;
+  height: 100%;
+  color: hsl(231, 42%, 28%);
+  background-color: transparent;
+  border: 0.1rem solid #4d5b9e;
+  border-radius: 1.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 1rem 4rem;
+  transition: all 0.4s;
+}
+
+.Quiz-btn:hover {
+  color: #fff;
+  background-color: hsl(230, 40%, 50%);
+  cursor: pointer;
+}

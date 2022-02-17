@@ -1,0 +1,24 @@
+.Footer-attribution {
+  font-size: 1rem;
+  text-align: center;
+  margin: 2rem;
+}
+
+@media (min-width: 1140px) {
+  .Footer-attribution {
+    margin-block: 1rem;
+  }
+}
+
+.Footer-attribution--link:link,
+.Footer-attribution--link:visited {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: hsl(217, 45%, 22%);
+  transition: all 0.2s;
+}
+
+.Footer-attribution--link:hover,
+.Footer-attribution--link:active {
+  color: hsl(220, 15%, 55%);
+}

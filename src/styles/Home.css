@@ -1,0 +1,35 @@
+.Home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Home-heading {
+  color: hsl(231, 42%, 28%);
+  font-size: 15rem;
+}
+
+.Home-desc {
+  color: hsl(231, 42%, 28%);
+  font-weight: 500;
+  font-size: 2rem;
+  margin-block: 2rem;
+}
+
+.Home-link {
+  color: #fff;
+  background-color: hsl(230, 34%, 46%);
+  border-radius: 2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  padding: 2rem 4rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.Home-link:hover {
+  background-color: hsl(230, 40%, 50%);
+  cursor: pointer;
+}

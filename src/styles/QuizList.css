@@ -1,0 +1,27 @@
+.QuizList {
+  width: 90%;
+  max-width: 110rem;
+  margin: 8rem 0 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.QuizList-button {
+  color: #fff;
+  background-color: hsl(230, 34%, 46%);
+  border: none;
+  border-radius: 2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  padding: 2rem 4rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.QuizList-button:hover {
+  background-color: hsl(230, 40%, 50%);
+  cursor: pointer;
+}
