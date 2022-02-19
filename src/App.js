@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/quizzical-app" element={<Home />} />
-        <Route path="/quizlist" element={<QuizList />} />
+        <Route path="/quizlist/" element={<QuizList />} />
       </Routes>
       <Footer />
     </div>
