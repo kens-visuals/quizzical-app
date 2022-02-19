@@ -14,6 +14,12 @@
   gap: 2rem;
 }
 
+.QuizList-loader {
+  color: hsl(230, 40%, 50%);
+  font-size: 3rem;
+  animation: flash 0.5s ease-in-out infinite alternate both;
+}
+
 .QuizList-score {
   font-size: 2rem;
   margin-bottom: 0;
@@ -24,6 +30,13 @@
   font-weight: 700;
   font-size: 4rem;
   margin-bottom: 3rem;
+  text-align: center;
+}
+
+@media (min-width: 810px) {
+  .Quiz-heading {
+    text-align: left;
+  }
 }
 
 .QuizList-button {
@@ -42,4 +55,14 @@
 .QuizList-button:hover {
   background-color: hsl(230, 40%, 50%);
   cursor: pointer;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

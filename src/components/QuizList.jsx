@@ -15,7 +15,7 @@ export default function QuizList() {
   useEffect(() => {
     async function trivias() {
       const res = await fetch(
-        'https://opentdb.com/api.php?amount=5&category=18&type=multiple'
+        'https://opentdb.com/api.php?amount=10&category=18&type=multiple'
       );
       const resJson = await res.json();
 
@@ -82,8 +82,14 @@ export default function QuizList() {
     />,
   ]);
 
-  return (
+  return quizzes.length === 0 ? (
+    <div className="QuizList-wrapper">
+      <span className="QuizList-loader">Loading...</span>
+    </div>
+  ) : (
     <div className="QuizList">
+      <h1 className="QuizList-heading">Computer Science</h1>
+
       {quizzes.length !== 0 && quizzes}
 
       {!playAgain ? (
@@ -93,7 +99,10 @@ export default function QuizList() {
       ) : (
         <div className="QuizList-wrapper">
           <span className="QuizList-score">
-            You scored <span>{correctCount}/5</span>
+            You scored{' '}
+            <span>
+              {correctCount}/{quizzes.length}
+            </span>
           </span>
           <button className="QuizList-button" onClick={handlePlayAgain}>
             Play again

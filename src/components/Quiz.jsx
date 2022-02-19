@@ -32,7 +32,7 @@ export default function Quiz(props) {
     <div className="Quiz">
       <span className="Quiz-question">{convertUnicode(data.question)}</span>
 
-      <div className={`Quiz-answers ${props.playAgain && 'playAgain'}`}>
+      <div className={`Quiz-answers ${props.playAgain ? 'playAgain' : ''}`}>
         {answersDisplay}
       </div>
     </div>
