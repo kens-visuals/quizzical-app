@@ -1,27 +1,35 @@
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-
 import { convertUnicode } from '../helpers';
 
 import '../styles/Quiz.css';
 
-export default function Quiz({ question, answers }) {
-  const [currAnswer, setCurrAnswer] = useState(-1);
+export default function Quiz(props) {
+  const { data, handleChange } = props;
 
-  console.log(answers);
+  console.log(data);
 
-  const answersDisplay = answers.map((answer, idx) => (
-    <li className="Quiz-item" key={uuidv4()}>
-      <button
-        onClick={() => setCurrAnswer(idx)}
-        className={idx === currAnswer ? 'Quiz-btn active' : 'Quiz-btn'}
-      >{`${convertUnicode(answer)}`}</button>
-    </li>
+  const answersDisplay = data.options.map((option) => (
+    <span
+      key={option}
+      // className={
+      //   data.correctAnswer === option && props.playAgain ? 'correctAnswer' : ''
+      // }
+    >
+      <input
+        type="radio"
+        // disabled={props.playAgain ? true : false}
+        checked={data.selectedAnswer === option}
+        onChange={(e) => handleChange(e, data.correctAnswer, data.id)}
+        value={option}
+        id={data.id + option}
+        name={data.id}
+      />
+      <label htmlFor={data.id + option}>{convertUnicode(option)}</label>
+    </span>
   ));
 
   return (
     <div className="Quiz">
-      <span className="Quiz-question">{convertUnicode(question)}</span>
+      <span className="Quiz-question">{convertUnicode(data.question)}</span>
 
       <ul className="Quiz-list">{answersDisplay}</ul>
     </div>
