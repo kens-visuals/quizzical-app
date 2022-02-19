@@ -18,38 +18,66 @@
   }
 }
 
-.Quiz-list {
-  list-style: none;
+.Quiz-answers {
   border-bottom: 0.1rem solid hsl(231, 41%, 90%);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 2rem;
 }
 
-.Quiz-item {
-  padding-bottom: 3rem;
+.Quiz-span {
+  margin-bottom: 3rem;
 }
 
-.Quiz-btn {
+.Quiz-label {
   width: 100%;
   height: 100%;
   color: hsl(231, 42%, 28%);
-  background-color: transparent;
   border: 0.1rem solid #4d5b9e;
   border-radius: 1.5rem;
-  font-size: clamp(1rem, 4vw, 2rem);
+  text-align: center;
+  font-size: clamp(1rem, 4vw, 1.8rem);
   font-weight: 500;
-  padding: 2rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.4s;
 }
 
-.Quiz-btn.active {
-  color: hsl(230, 40%, 50%);
-  background-color: hsl(230, 61%, 90%);
-}
-
-.Quiz-btn:hover {
+.Quiz-label:hover {
   color: hsl(230, 40%, 50%);
   background-color: hsl(230, 61%, 90%);
   cursor: pointer;
+}
+
+.Quiz-input:checked + .Quiz-label {
+  background: #d6dbf5;
+  border-color: transparent;
+}
+
+.correctAnswer .Quiz-input + .Quiz-label {
+  background: #94d7a2;
+  border-color: transparent;
+}
+
+.Quiz-span:not(.correctAnswer) .Quiz-input:disabled + .Quiz-label {
+  opacity: 0.5;
+}
+
+.Quiz-span:not(.correctAnswer) .Quiz-input:disabled + .Quiz-label:hover {
+  background: transparent;
+}
+
+.playAgain .Quiz-span:not(.correctAnswer) .Quiz-input:checked + .Quiz-label {
+  background: #f8bcbc;
+}
+
+[type='radio']:checked,
+[type='radio']:not(:checked) {
+  position: absolute;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  visibility: hidden;
 }

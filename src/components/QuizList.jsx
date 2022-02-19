@@ -68,6 +68,7 @@ export default function QuizList() {
     setPlayAgain(false);
     setNewGame((prevGame) => !prevGame);
     setCorrectCount(0);
+    window.scroll(0, 0);
   }
 
   const quizzes = questions.map((q) => [
@@ -77,33 +78,28 @@ export default function QuizList() {
       question={q.question}
       options={q.options}
       handleChange={selectAnswer}
+      playAgain={playAgain}
     />,
   ]);
 
   return (
     <div className="QuizList">
-      <div>
-        {quizzes.length !== 0 && quizzes}
+      {quizzes.length !== 0 && quizzes}
 
-        {!playAgain ? (
-          <div className="checkAnswers">
-            {quizzes.length !== 0 && (
-              <button className="btn-quiz" onClick={checkAnswers}>
-                Check Answers
-              </button>
-            )}
-          </div>
-        ) : (
-          <div className="playAgainBtnDiv">
-            <span className="score">
-              You scored <span>{correctCount}/5</span> correct answers
-            </span>
-            <button className="btn-quiz" onClick={handlePlayAgain}>
-              Play again
-            </button>
-          </div>
-        )}
-      </div>
+      {!playAgain ? (
+        <button className="QuizList-button" onClick={checkAnswers}>
+          Check Answers
+        </button>
+      ) : (
+        <div className="QuizList-wrapper">
+          <span className="QuizList-score">
+            You scored <span>{correctCount}/5</span>
+          </span>
+          <button className="QuizList-button" onClick={handlePlayAgain}>
+            Play again
+          </button>
+        </div>
+      )}
     </div>
   );
 }
