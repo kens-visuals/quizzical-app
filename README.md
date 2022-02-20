@@ -44,13 +44,7 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+This project helped me to practice passing props to multiple elements, lifting state up and a bit of `react-router`. The initial design is from [`Scrimba`](https://github.com/scrimba), I just made it responsive. I can only imagine how much work it would take me to build this project in Vanilla JS. Though there's one thing that I'm going to change for the future projects, and that is instead of using plain CSS, I'm going to start using one of the CSS-in-JS solutions. All in all, I enjoyed working with react router, and I'm going to practice it more in bigger projects. Finally, go check out your computer science skills, but don't take it too seriously!
 
 ## Author's Links
 
