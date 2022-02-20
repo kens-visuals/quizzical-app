@@ -1,40 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 import Quiz from './Quiz';
-import { shuffleArray } from '../helpers';
 
 import '../styles/QuizList.css';
 
-export default function QuizList() {
-  const [newGame, setNewGame] = useState(false);
-  const [questions, setQuestions] = useState([]);
+export default function QuizList({ questions, setQuestions, setNewGame }) {
   const [playAgain, setPlayAgain] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
 
-  useEffect(() => {
-    async function trivias() {
-      const res = await fetch(
-        'https://opentdb.com/api.php?amount=10&category=18&type=multiple'
-      );
-      const resJson = await res.json();
-
-      setQuestions(() => {
-        return resJson.results.map((res) => ({
-          id: uuidv4(),
-          question: res.question,
-          correctAnswer: res.correct_answer,
-          options: shuffleArray([...res.incorrect_answers, res.correct_answer]),
-          selectedAnswer: '',
-          isCorrect: false,
-        }));
-      });
-    }
-
-    trivias();
-  }, [newGame]);
-
-  function selectAnswer(e, correctAnswer, id) {
+  const selectAnswer = function (e, correctAnswer, id) {
     const { value } = e.target;
 
     setQuestions((oldQuestion) =>
@@ -48,9 +24,9 @@ export default function QuizList() {
           : question;
       })
     );
-  }
+  };
 
-  function checkAnswers() {
+  const checkAnswers = function () {
     if (!questions.every((question) => question.selectedAnswer)) {
       setCorrectCount(0);
       alert('Answer all questions!');
@@ -61,15 +37,15 @@ export default function QuizList() {
       if (question.isCorrect) setCorrectCount((prevCount) => prevCount + 1);
 
     setPlayAgain(true);
-  }
+  };
 
-  function handlePlayAgain() {
+  const handlePlayAgain = function () {
     setQuestions([]);
     setPlayAgain(false);
     setNewGame((prevGame) => !prevGame);
     setCorrectCount(0);
     window.scroll(0, 0);
-  }
+  };
 
   const quizzes = questions.map((q) => [
     <Quiz
@@ -88,7 +64,9 @@ export default function QuizList() {
     </div>
   ) : (
     <div className="QuizList">
-      <h1 className="QuizList-heading">Computer Science</h1>
+      <Link to="/quizzical-app">Quizzical</Link>
+
+      <h1 className="QuizList-heading">{questions[0].heading}</h1>
 
       {quizzes.length !== 0 && quizzes}
 
