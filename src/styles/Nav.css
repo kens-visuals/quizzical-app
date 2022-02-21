@@ -25,7 +25,7 @@
 
 .Nav-link:link,
 .Nav-link:visited {
-  color: hsl(230, 40%, 50%);
+  color: hsl(231, 42%, 28%);
   font-size: 4rem;
   text-decoration: none;
   margin-bottom: 2rem;
@@ -41,7 +41,7 @@
 
 .Nav-link:hover,
 .Nav-link:active {
-  opacity: 0.7;
+  color: hsl(230, 40%, 50%);
 }
 
 .Nav-span {
