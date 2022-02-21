@@ -21,6 +21,7 @@ Users should be able to:
 
 - Toggle between answer options
 - See right/wrong answers after clicking on `Check Answewrs` button
+- Choose a quantity, difficulty, or category for the questions
 
 ### Screenshot
 
