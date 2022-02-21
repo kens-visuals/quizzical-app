@@ -25,14 +25,6 @@
   margin-bottom: 0;
 }
 
-.QuizList-heading {
-  color: hsl(230, 40%, 50%);
-  font-weight: 700;
-  font-size: 4rem;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
 @media (min-width: 810px) {
   .Quiz-heading {
     text-align: left;

@@ -14,7 +14,9 @@ export default function HomePage({ getGameOptions }) {
   return (
     <div className="Home">
       <h1 className="Home-heading">Quizzical</h1>
-      <span className="Home-desc">Test Your Skills</span>
+      <span className="Home-desc">
+        Choose a quantity, difficulty, category and test your skills!
+      </span>
 
       <div className="Home-wrapper">
         <Options handleChange={handleChange} name={'quantity'} hasId={false} />

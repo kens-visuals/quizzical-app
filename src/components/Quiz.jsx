@@ -13,14 +13,14 @@ export default function Quiz(props) {
       }`}
     >
       <input
-        className="Quiz-input"
         type="radio"
+        value={option}
+        name={data.id}
+        id={`${data.id}${option}`}
+        className="Quiz-input"
         disabled={props.playAgain ? true : false}
         checked={data.selectedAnswer === option}
         onChange={(e) => handleChange(e, data.correctAnswer, data.id)}
-        value={option}
-        id={data.id + option}
-        name={data.id}
       />
       <label className="Quiz-label" htmlFor={data.id + option}>
         {convertUnicode(option)}

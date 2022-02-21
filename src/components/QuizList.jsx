@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Link } from 'react-router-dom';
 
+import Nav from './Nav';
 import Quiz from './Quiz';
 
 import '../styles/QuizList.css';
 
-export default function QuizList({ questions, setQuestions, setNewGame }) {
+export default function QuizList({
+  questions,
+  setQuestions,
+  setNewGame,
+  gameOptions,
+  setGameOptions,
+}) {
   const [playAgain, setPlayAgain] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
 
@@ -41,20 +47,20 @@ export default function QuizList({ questions, setQuestions, setNewGame }) {
 
   const handlePlayAgain = function () {
     setQuestions([]);
-    setPlayAgain(false);
-    setNewGame((prevGame) => !prevGame);
     setCorrectCount(0);
+    setPlayAgain(false);
     window.scroll(0, 0);
+    setNewGame((prevGame) => !prevGame);
   };
 
   const quizzes = questions.map((q) => [
     <Quiz
-      key={uuidv4()}
       data={q}
-      question={q.question}
+      key={uuidv4()}
       options={q.options}
-      handleChange={selectAnswer}
+      question={q.question}
       playAgain={playAgain}
+      handleChange={selectAnswer}
     />,
   ]);
 
@@ -64,9 +70,13 @@ export default function QuizList({ questions, setQuestions, setNewGame }) {
     </div>
   ) : (
     <div className="QuizList">
-      <Link to="/quizzical-app">Quizzical</Link>
-
-      <h1 className="QuizList-heading">{questions[0].heading}</h1>
+      <Nav
+        heading={questions[0].heading}
+        quantity={gameOptions.quantity}
+        setGameOptions={setGameOptions}
+        handlePlayAgain={handlePlayAgain}
+        difficulty={gameOptions.difficulty}
+      />
 
       {quizzes.length !== 0 && quizzes}
 

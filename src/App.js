@@ -62,7 +62,9 @@ function App() {
             <QuizList
               questions={questions}
               setNewGame={setNewGame}
+              gameOptions={gameOptions}
               setQuestions={setQuestions}
+              setGameOptions={setGameOptions}
             />
           }
         />
