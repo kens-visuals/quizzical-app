@@ -25,7 +25,7 @@ const OPTIONS = {
     { id: 31, name: 'Japanese Anime & Manga' },
     { id: 32, name: 'Cartoon & Animations' },
   ],
-  trivia_quantity: [5, 10, 30, 50],
+  trivia_quantity: [5, 10, 20],
   trivia_difficulty: ['Easy', 'Medium', 'Hard'],
 };
 
