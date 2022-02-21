@@ -15,8 +15,8 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [gameOptions, setGameOptions] = useState({
     category: '9',
-    quantity: '10',
-    difficulty: 'medium',
+    quantity: '5',
+    difficulty: 'easy',
   });
 
   useEffect(() => {
@@ -43,7 +43,10 @@ function App() {
   }, [newGame, gameOptions]);
 
   const getGameOptions = (name, value) => {
-    setGameOptions((prevItems) => ({ ...prevItems, [name]: value }));
+    setGameOptions((prevItems) => ({
+      ...prevItems,
+      [name]: value.toLowerCase(),
+    }));
   };
 
   return (

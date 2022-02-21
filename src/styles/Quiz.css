@@ -43,8 +43,7 @@
 .Quiz-label {
   width: 100%;
   height: 100%;
-  color: hsl(231, 42%, 28%);
-  border: 0.1rem solid #4d5b9e;
+  border: 0.1rem solid hsl(230, 34%, 46%);
   border-radius: 1.5rem;
   text-align: center;
   font-size: clamp(1rem, 4vw, 1.8rem);
@@ -63,11 +62,11 @@
 }
 
 .Quiz-input:checked + .Quiz-label {
-  background: #d6dbf5;
+  background: hsl(230, 61%, 90%);
 }
 
 .correctAnswer .Quiz-input + .Quiz-label {
-  background: #94d7a2;
+  background: hsl(133, 46%, 71%);
 }
 
 .Quiz-span:not(.correctAnswer) .Quiz-input:disabled + .Quiz-label {
@@ -79,7 +78,7 @@
 }
 
 .playAgain .Quiz-span:not(.correctAnswer) .Quiz-input:checked + .Quiz-label {
-  background: #f8bcbc;
+  background: hsl(0, 81%, 85%);
 }
 
 [type='radio']:checked,

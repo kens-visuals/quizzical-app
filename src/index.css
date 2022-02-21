@@ -40,7 +40,8 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: hsl(220, 43%, 97%);
+  color: hsl(231, 42%, 28%);
+  background-color: hsl(223, 47%, 97%);
   background-image: url('./images/blob_blue.png'),
     url('./images/blob_yellow.png');
   background-repeat: no-repeat;

@@ -7,16 +7,27 @@
 }
 
 .Home-heading {
-  color: hsl(231, 42%, 28%);
   font-size: clamp(5rem, 12vw, 15rem);
 }
 
 .Home-desc {
-  color: hsl(231, 42%, 28%);
   font-weight: 500;
   font-size: 2rem;
   margin-block: 2rem;
   text-align: center;
+}
+
+.Home-wrapper {
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 1140px) {
+  .Home-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .Home-link {
